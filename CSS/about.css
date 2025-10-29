@@ -1,0 +1,644 @@
+/* =========================================
+   THEME TOKENS
+========================================= */
+:root {
+  --bg-main: #000000;
+  --text-primary: #ffffff;
+  --text-dim: #9ca3af;
+  --accent: #c084fc; /* purple */
+  --sub: #60a5fa;    /* blue */
+  --border-color: rgba(255,255,255,0.07);
+
+  --radius-lg: 1.25rem;
+  --radius-md: 0.75rem;
+  --radius-sm: 0.5rem;
+}
+
+/* =========================================
+   BASE PAGE
+========================================= */
+body.theme-dark {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", Roboto, "Segoe UI", sans-serif;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  position: relative;
+  z-index: 2; /* make sure text sits above any backgrounds */
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.nav {
+  min-height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.nav__brand {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+
+.nav__brand .accent {
+  color: var(--accent);
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: nowrap;
+  margin-right: 50px;
+}
+
+.nav__link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: color 0.15s ease;
+  white-space: nowrap;
+}
+.nav__link:hover {
+  color: var(--accent);
+}
+.nav__link--blue:hover {
+  color: var(--sub);
+}
+.nav__link--active {
+  color: var(--text-primary);
+}
+
+/* =========================================
+   SLIDE SYSTEM
+========================================= */
+
+/*
+We simulate full-screen "slides":
+- main#slidesWrapper is tall (N * 100vh)
+- each .slide is fixed under the navbar
+- JS decides which slide is active, entering, leaving
+*/
+
+#slidesWrapper {
+  position: relative;
+  height: 300vh; /* 3 slides => 3 * 100vh (update if you add more) */
+}
+
+/* Base slide layer */
+.slide {
+  position: fixed;
+  top: 4rem; /* leave space for navbar height */
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--bg-main);
+  border-bottom: 1px solid var(--border-color);
+
+  /* start hidden / inactive style */
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(40px) scale(0.96);
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* slide 1 is transparent so spline shows */
+.slide[data-index="1"] {
+  background-color: transparent;
+  border-bottom: none;
+}
+
+/* the slide currently considered "active":
+   this enables pointer-events and puts it above the others */
+.slide--active {
+  pointer-events: auto;
+  z-index: 10;
+}
+
+/* slides that are animating out sit between z-index layers */
+.slide--leaving-up,
+.slide--leaving-down {
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* =========================================
+   SLIDE ENTER ANIMATIONS
+   (assigned dynamically in JS)
+========================================= */
+
+/* scrolling DOWN -> next slide enters from below */
+.slide--entering-down {
+  animation: enterFromBelow 0.5s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+/* scrolling UP -> next slide enters from above */
+.slide--entering-up {
+  animation: enterFromAbove 0.5s cubic-bezier(.16,1,.3,1) forwards;
+}
+
+@keyframes enterFromBelow {
+  0% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(40px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes enterFromAbove {
+  0% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(-40px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* =========================================
+   SLIDE EXIT ANIMATIONS
+   (assigned dynamically in JS)
+========================================= */
+
+/* scrolling DOWN:
+   previous slide drifts up + fades out */
+.slide--leaving-up {
+  animation: leaveUp 0.5s cubic-bezier(.16,1,.3,1) forwards;
+}
+@keyframes leaveUp {
+  0% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateY(-40px) scale(0.94);
+  }
+}
+
+/* scrolling UP:
+   previous slide drifts down + fades out */
+.slide--leaving-down {
+  animation: leaveDown 0.5s cubic-bezier(.16,1,.3,1) forwards;
+}
+@keyframes leaveDown {
+  0% {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    filter: blur(12px);
+    transform: translateY(40px) scale(0.94);
+  }
+}
+
+/* =========================================
+   SLIDE 0 (HERO)
+========================================= */
+.hero {
+  max-width: 780px;
+  text-align: left;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.about-hero__title {
+  font-size: clamp(2rem, 1.2rem + 2vw, 3rem);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+  color: var(--text-primary);
+  margin: 0 0 1rem;
+}
+
+.about-hero__tagline {
+  color: var(--text-dim);
+  font-size: 1rem;
+  max-width: 60ch;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.scroll-prompt {
+  position: absolute;
+  left: 50%;
+  bottom: 2rem;
+  transform: translateX(-50%);
+  color: var(--accent);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  animation: blink 2s ease-in-out infinite;
+  user-select: none;
+  opacity: 0.85;
+  z-index: 20;
+}
+@keyframes blink {
+  0%,100% {
+    opacity: 0.2;
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(5px);
+  }
+}
+
+/* =========================================
+   SLIDE 1 (WHO AM I)
+========================================= */
+.whoami {
+  width: 100%;
+  max-width: 1280px;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+
+  pointer-events: none; /* actual panel turns it back on */
+  position: relative;
+  z-index: 2;
+}
+
+/* spline background */
+.spline-wrapper {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none; /* wrapper doesn't swallow scroll */
+}
+.spline-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  opacity: 0.6;
+  pointer-events: auto; /* spline still interactive for hover, etc */
+}
+
+/* frosted panel */
+.whoami__panel {
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(8px);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  box-shadow:
+    0 60px 160px rgba(192,132,252,0.16),
+    0 24px 48px rgba(0,0,0,0.8);
+  color: var(--text-primary);
+
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.whoami__panel--split {
+  display: grid;
+  grid-template-columns: minmax(0, 380px) minmax(0, 1fr);
+  gap: 2rem;
+  max-width: 900px;
+  width: 100%;
+  padding: 2rem;
+}
+
+.whoami__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.whoami__media-frame {
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+
+  background: radial-gradient(
+    circle at 20% 20%,
+    rgba(192,132,252,0.18) 0%,
+    rgba(0,0,0,0) 70%
+  );
+  border: 1px solid var(--border-color);
+  box-shadow:
+    0 40px 120px rgba(192,132,252,0.12),
+    0 20px 40px rgba(0,0,0,0.8);
+}
+
+.whoami__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.whoami__text {
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.section-heading {
+  color: var(--accent);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 1rem;
+}
+
+.whoami__title {
+  margin: 0 0 1rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+}
+
+.section-body {
+  font-size: 1rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin: 0 0 1rem;
+  max-width: 65ch;
+}
+
+/* =========================================
+   SLIDE 2 (FEATURED PROJECTS)
+========================================= */
+.featured {
+  max-width: 900px;
+  width: 100%;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.featured__intro {
+  max-width: 60ch;
+  margin-bottom: 2rem;
+  color: var(--text-dim);
+}
+
+.projects-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 700px) {
+  .projects-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.project-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1rem 1rem;
+  box-shadow:
+    0 24px 40px -8px rgba(0,0,0,0.8),
+    0 40px 120px rgba(192,132,252,0.12);
+  transition: transform .15s ease, box-shadow .15s ease;
+  max-width: 100%;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 24px 40px -8px rgba(0,0,0,0.8),
+    0 60px 160px rgba(192,132,252,0.2);
+}
+
+.project-card__head {
+  display: flex;
+  flex-direction: column; /* stack everything vertically */
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.project-card__titles {
+  width: 100%;
+}
+
+.project-card__name {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.03em;
+}
+
+.project-card__meta {
+  font-size: .8rem;
+  font-weight: 500;
+  color: var(--sub);
+  line-height: 1.4;
+}
+
+.project-card__link {
+  display: inline-block;
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.project-card__link:hover {
+  text-decoration: underline;
+  color: var(--accent);
+}
+
+.project-card__body {
+  font-size: .9rem;
+  line-height: 1.5;
+  color: var(--text-dim);
+  margin: 0;
+}
+
+/* =========================================
+   SLIDE 2 STAGGERED INTERNAL ANIMATION
+   (fires once .slide--animating is applied)
+========================================= */
+
+.slide[data-index="2"] .featured {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition:
+    opacity 0.6s cubic-bezier(.16,1,.3,1),
+    transform 0.6s cubic-bezier(.16,1,.3,1);
+}
+.slide[data-index="2"] .project-card {
+  opacity: 0;
+  transform: translateX(-48px) scale(.98);
+  transition:
+    opacity 0.6s cubic-bezier(.16,1,.3,1),
+    transform 0.6s cubic-bezier(.16,1,.3,1),
+    box-shadow 0.3s ease;
+}
+.slide[data-index="2"] .project-card:nth-child(1) {
+  transition-delay: .15s;
+}
+.slide[data-index="2"] .project-card:nth-child(2) {
+  transition-delay: .30s;
+}
+
+.slide[data-index="2"].slide--animating .featured {
+  opacity: 1;
+  transform: translateX(0);
+}
+.slide[data-index="2"].slide--animating .project-card {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+/* =========================================
+   GLOBAL PAGE-LOAD FADE-IN (content polish)
+========================================= */
+.slide-content {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.page-loaded .slide-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+.nav__link:focus,
+.project-card:focus {
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+  border-radius:var(--radius-sm);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+@media (max-width: 600px) {
+  .nav {
+    flex-wrap: wrap;
+    min-height: auto;
+    row-gap: 0.5rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .nav__brand {
+    flex-basis: 100%;
+    font-size: 0.95rem;
+  }
+
+  .nav__links {
+    flex-basis: 100%;
+    justify-content: flex-start;
+    gap: 0.75rem;
+  }
+
+  .nav__link {
+    font-size: 0.8rem;
+  }
+
+  .hero,
+  .whoami,
+  .featured {
+    text-align: center;
+    justify-content: center;
+    max-width: 90%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .scroll-prompt {
+    bottom: 1.25rem;
+    font-size: 0.8rem;
+  }
+
+  .whoami__panel--split {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    padding: 1.5rem;
+    gap: 1.5rem;
+    text-align: center;
+    background: rgba(0,0,0,0.6);
+  }
+
+  .whoami__media-frame {
+    max-width: 100%;
+  }
+
+  .whoami__text {
+    max-width: 100%;
+    align-items: center;
+  }
+
+  .whoami__title {
+    font-size: 1.25rem;
+  }
+}

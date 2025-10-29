@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About • marcus.dev</title>
+
+  <link rel="stylesheet" href="CSS/about.css"/>
+
+  <!-- spline viewer for slide 1 -->
+  <script
+    type="module"
+    src="https://unpkg.com/@splinetool/viewer@1.10.89/build/spline-viewer.js">
+  </script>
+</head>
+
+<body class="theme-dark">
+
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="index.html" class="nav__brand">
+        marcus<span class="accent">.dev</span>
+      </a>
+
+      <ul class="nav__links">
+        <li><a href="about.html" class="nav__link nav__link--active">About</a></li>
+        <li><a href="archive.html" class="nav__link nav__link--blue">Archive</a></li>
+        <li><a href="credit.html" class="nav__link nav__link--blue">Credits</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- SCROLL WRAPPER (sets total scroll height) -->
+  <main id="slidesWrapper">
+
+    <!-- SLIDE 0: HERO -->
+    <section class="slide slide--active" data-index="0">
+      <div class="slide-content hero container">
+        <h1 class="about-hero__title">
+          I solve real world problems with code.
+        </h1>
+
+        <p class="about-hero__tagline">
+          I'm keen on building solutions that bridge vision and execution —
+          from concept → working product.
+        </p>
+      </div>
+
+      <div class="scroll-prompt">Scroll ↓</div>
+    </section>
+
+    <!-- SLIDE 1: WHO AM I -->
+    <section class="slide" data-index="1">
+      <!-- spline background layer -->
+      <div class="spline-wrapper">
+        <spline-viewer
+          class="spline-bg"
+          url="https://prod.spline.design/FNZX9B-uFKbUeZfR/scene.splinecode">
+        </spline-viewer>
+      </div>
+
+      <!-- foreground glass panel -->
+      <div class="slide-content whoami container">
+        <div class="whoami__panel whoami__panel--split">
+          <!-- LEFT: media -->
+          <div class="whoami__media">
+            <div class="whoami__media-frame">
+              <img
+                src="https://via.placeholder.com/400x300.png?text=Your+Photo"
+                alt="Marcus Ong portrait"
+                class="whoami__img"
+              />
+            </div>
+          </div>
+
+          <!-- RIGHT: text -->
+          <div class="whoami__text">
+            <h2 class="section-heading">Hi, nice to meet you</h2>
+
+            <h3 class="whoami__title">I'm Marcus Ong</h3>
+
+            <p class="section-body">
+              I’m a software engineering student passionate about building
+              real, impactful systems. I enjoy turning complex problems into
+              clean, maintainable solutions that scale beyond a prototype.
+            </p>
+
+            <p class="section-body">
+              I’m looking for opportunities to learn from strong mentors,
+              contribute meaningfully to teams, and help take ideas → working
+              product.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 2: FEATURED PROJECTS -->
+    <section class="slide" data-index="2">
+      <div class="slide-content featured container">
+        <h2 class="section-heading">Featured Projects</h2>
+
+<p class="section-body featured__intro"> A selection of projects I’ve built during my studies — 
+  each one reflects what I’ve learned and how far I’ve grown as a developer. </p>
+
+        <div class="projects-grid">
+
+          <!-- PROJECT 1 -->
+          <article class="project-card" tabindex="0">
+            <div class="project-card__head">
+              <div class="project-card__titles">
+                <h3 class="project-card__name">SeniorSync Elderly Care Enhancement Web App </h3>
+                <span class="project-card__meta">
+                  BED Project @ Ngee Ann Polytechnic · 2025
+                </span>
+              </div>
+              <a
+                class="project-card__link"
+                href="case_studies/seniorsync.html"
+                target="_blank"
+                rel="noopener noreferrer">
+                Case Study →
+              </a>
+            </div>
+
+            <p class="project-card__body">
+              Built a web application to promote elderly care collaboration for Caretakers and their seniors, whilst improving seniors' quality of life.
+              Features includes medication reminders, budget tracking, event registration and GPS traveling aid.
+              On Board AI chatbot to assist elderly users with personalised health advice.
+            </p>
+          </article>
+
+          <!-- PROJECT 2 -->
+          <article class="project-card" tabindex="0">
+            <div class="project-card__head">
+              <div class="project-card__titles">
+                <h3 class="project-card__name">Echo System Productivity Software</h3>
+                <span class="project-card__meta">
+                  IMP Project @ Ngee Ann Polytechnic · 2024
+                </span>
+              </div>
+              <a
+                class="project-card__link"
+                href="case_studies/echosystem.html"
+                target="_blank"
+                rel="noopener noreferrer">
+                Case Study →
+              </a>
+            </div>
+
+            <p class="project-card__body">
+              Developed a desktop productivity software MVP to help users manage tasks, notes, and schedules efficiently.
+              Integrated features such as task prioritization, note-taking with rich text formatting, and calendar synchronization.
+              On Board AI assistant to keep user company during long isolating work-at-home sessions.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="JS/about.js"></script>
+</body>
+</html>
