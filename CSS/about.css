@@ -64,15 +64,20 @@ body::-webkit-scrollbar {
 /* =========================================
    NAVBAR
 ========================================= */
+/* HEADER BAR */
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;              /* make it span full width */
   z-index: 1000;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border-color);
 }
 
+/* NAV ROW INSIDE HEADER */
 .nav {
   min-height: 4rem;
   display: flex;
@@ -81,8 +86,18 @@ body::-webkit-scrollbar {
   flex-wrap: nowrap;
   padding-top: 0;
   padding-bottom: 0;
+
+  /* VERY IMPORTANT: make sure nav respects the same max-width
+     and horizontal padding as the rest of the site: */
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
+/* BRAND */
 .nav__brand {
   font-size: 1rem;
   font-weight: 600;
@@ -96,6 +111,7 @@ body::-webkit-scrollbar {
   color: var(--accent);
 }
 
+/* LINKS GROUP (RIGHT SIDE) */
 .nav__links {
   display: flex;
   align-items: center;
@@ -104,9 +120,9 @@ body::-webkit-scrollbar {
   margin: 0;
   padding: 0;
   flex-wrap: nowrap;
-  margin-right: 50px;
 }
 
+/* INDIVIDUAL LINK */
 .nav__link {
   font-size: 0.9rem;
   font-weight: 500;
@@ -144,7 +160,7 @@ We simulate full-screen "slides":
 /* Base slide layer */
 .slide {
   position: fixed;
-  top: 4rem; /* leave space for navbar height */
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
