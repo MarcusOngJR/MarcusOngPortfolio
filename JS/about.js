@@ -6,15 +6,20 @@
   var lastScrollY = window.scrollY;
 
   // figure out which slide index matches current scroll
-  function getActiveIndex() {
-    var scrollY = window.scrollY;
-    var viewportH = window.innerHeight;
-    var idx = Math.round(scrollY / viewportH);
+function getActiveIndex() {
+  var scrollY = window.scrollY;
+  var viewportH = window.innerHeight;
 
-    if (idx < 0) idx = 0;
-    if (idx > totalSlides - 1) idx = totalSlides - 1;
-    return idx;
-  }
+  // 👇 smaller value = more sensitive scrolling
+  var sensitivity = 0.6; // e.g. 0.6 means 60% of screen scroll switches slide
+
+  var effectiveHeight = viewportH * sensitivity;
+  var idx = Math.round(scrollY / effectiveHeight);
+
+  if (idx < 0) idx = 0;
+  if (idx > totalSlides - 1) idx = totalSlides - 1;
+  return idx;
+}
 
   function clearAnimClasses(slide) {
     slide.classList.remove(

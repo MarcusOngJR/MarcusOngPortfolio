@@ -23,6 +23,31 @@ body.theme-dark {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", Roboto, "Segoe UI", sans-serif;
   line-height: 1.5;
   margin: 0;
+
+  /* keep scroll working but hide scrollbars */
+  overflow-y: auto;
+
+  /* hide scrollbar (cross-browser) */
+  -ms-overflow-style: none; /* IE & Edge */
+  scrollbar-width: none;    /* Firefox */
+}
+
+html,
+body {
+  /* make sure we're the scroll container */
+  overflow-y: auto;
+
+  /* Firefox */
+  scrollbar-width: none;
+
+  /* IE + old Edge */
+  -ms-overflow-style: none;
+}
+
+/* Chrome / Safari / Opera / new Edge (Chromium) */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
 }
 
 .container {
@@ -345,7 +370,7 @@ We simulate full-screen "slides":
     0 24px 48px rgba(0,0,0,0.8);
   color: var(--text-primary);
 
-  pointer-events: auto;
+  pointer-events: none;
   z-index: 2;
 }
 
@@ -461,7 +486,7 @@ We simulate full-screen "slides":
   box-shadow:
     0 24px 40px -8px rgba(0,0,0,0.8),
     0 40px 120px rgba(192,132,252,0.12);
-  transition: transform .15s ease, box-shadow .15s ease;
+  transition: transform 5s ease, box-shadow .15s ease;
   max-width: 100%;
 }
 
