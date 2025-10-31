@@ -1,0 +1,22 @@
+{
+  "timelineNodes": [
+    {
+      "date": "2024-01-15",
+      "label": "Secondary School",
+      "title": "Graduated from Beatty Secondary School",
+      "description": "Completed O-Levels and wrapped up secondary education."
+    },
+    {
+      "date": "2024-04-15",
+      "label": "Specialisation In SE",
+      "title": "Entered Ngee Ann Polytechnic — Software Engineering",
+      "description": "Started the Diploma in Infocomm Technology with a specialization in Software Engineering."
+    },
+    {
+      "date": "2027-04-19",
+      "label": "Projected Graduation",
+      "title": "Expected Diploma Graduation — Ngee Ann Polytechnic (SE)",
+      "description": "Projected completion of the diploma programme in Software Engineering."
+    }
+  ]
+}

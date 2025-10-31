@@ -683,3 +683,227 @@ We simulate full-screen "slides":
     font-size: 1.25rem;
   }
 }
+
+
+/* History / Timeline */
+.history { display: grid; gap: 1.25rem; }
+
+.history__timeline {
+  position: relative;
+  height: 80px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  padding: 20px 16px;
+}
+
+.history__track {
+  position: absolute; left: 16px; right: 16px; top: 50%;
+  height: 4px; transform: translateY(-50%);
+  background: linear-gradient(90deg, rgba(255,255,255,0.2), rgba(255,255,255,0.12));
+  border-radius: 999px;
+}
+
+.history__markers {
+  position: absolute; left: 16px; right: 16px; top: 50%;
+  transform: translateY(-50%);
+}
+
+.history__marker {
+  position: absolute; top: 50%; transform: translate(-50%, -50%);
+  width: 10px; height: 10px; border-radius: 50%;
+  background: rgba(255,255,255,0.6);
+  outline: 2px solid transparent;
+  cursor: pointer;
+}
+
+/* Larger hit area for touch without changing the dot size */
+.history__marker::before {
+  content: "";
+  position: absolute;
+  left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: 32px; height: 32px; border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Label bubble (hidden by default) */
+.history__marker::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -6px);
+  top: -28px;               /* above the track by default */
+  font-size: 0.75rem;
+  line-height: 1;
+  padding: 4px 6px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(6px);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease;
+}
+
+/* Reveal on explore */
+.history__marker:hover::after,
+.history__marker:focus-visible::after,
+.history__marker.is-active::after,
+.history__marker.force-show::after {
+  opacity: 1;
+  transform: translate(-50%, -10px);
+}
+
+/* Collision suppression — JS toggles this */
+.history__marker.is-suppressed::after {
+  opacity: 0 !important;
+}
+
+/* Active / hover pulse */
+.history__marker.is-active,
+.history__marker:hover {
+  box-shadow: 0 0 0 6px rgba(110,168,254,0.15);
+}
+
+/* Handle */
+.history__handle {
+  position: absolute; top: 50%; transform: translate(-50%, -50%);
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--accent, #6ea8fe);
+  border: none; cursor: grab;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.35), 0 0 0 10px rgba(110,168,254,0.12);
+}
+.history__handle:active { cursor: grabbing; }
+.history__handle:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+/* Details card */
+.history__details {
+  padding: 16px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(8px);
+}
+.history__event-title { margin: 0 0 2px; font-size: 1.1rem; }
+.history__event-meta { opacity: 0.8; font-size: 0.9rem; margin-bottom: 8px; }
+.history__event-desc { margin: 0; line-height: 1.5; }
+
+/* Optional: two-lane labels (alternate above/below) */
+.history__markers.lanes-2 .history__marker[data-lane="bottom"]::after {
+  top: auto;
+  bottom: -28px;
+  transform: translate(-50%, 6px);
+}
+.history__markers.lanes-2 .history__marker[data-lane="bottom"]:hover::after,
+.history__markers.lanes-2 .history__marker[data-lane="bottom"].is-active::after,
+.history__markers.lanes-2 .history__marker[data-lane="bottom"].force-show::after {
+  transform: translate(-50%, 10px);
+}
+
+/* Responsive density: hide labels entirely on very small screens */
+@media (max-width: 640px) {
+  .history__marker::after { display: none; }
+}
+
+/* ============ SLIDE 3: JOURNEY (NEW) ============ */
+.journey { --zoom: 1; display: grid; gap: 1.25rem; padding-top: 2rem; }
+.journey__header { display: flex; align-items: end; justify-content: space-between; gap: 1rem; }
+.journey__title { margin: .2rem 0 0; font-size: clamp(1.1rem, .9rem + 1vw, 1.35rem); letter-spacing: -.01em; }
+
+.journey__controls { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; }
+.journey__btn {
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.06);
+  color: #fff; padding: .45rem .7rem; border-radius: .7rem; cursor: pointer;
+}
+.journey__btn:hover { background: rgba(255,255,255,.12); }
+.journey__zoom { display: inline-flex; gap: .5rem; align-items: center; opacity: .9; }
+.journey__zoom-range { accent-color: var(--accent); width: 140px; }
+
+.journey__rail {
+  position: relative; height: 220px;
+  border-radius: 18px; background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1); backdrop-filter: blur(12px);
+  padding: 28px 28px 64px; /* room for popover above and cards below */
+  overflow: show;
+}
+.journey__track {
+  position: absolute; left: 28px; right: 28px; top: 60%;
+  height: 8px; transform: translateY(-50%);
+  background: linear-gradient(90deg, rgba(255,255,255,.28), rgba(255,255,255,.12));
+  border-radius: 999px;
+}
+.journey__markers { position: absolute; left: 28px; right: 28px; top: 60%; transform: translateY(-50%); }
+
+.journey__marker {
+  position: absolute; top: 50%; transform: translate(-50%, -50%);
+  width: 14px; height: 14px; border-radius: 50%;
+  background: rgba(255,255,255,.8); cursor: pointer;
+  transition: transform .12s ease;
+}
+.journey__marker:hover { transform: translate(-50%, -50%) scale(1.15); }
+.journey__marker.is-active { background: var(--accent); box-shadow: 0 0 0 12px rgba(192,132,252,.18); }
+
+.journey__handle {
+  position: absolute; top: 60%; transform: translate(-50%, -50%);
+  width: 34px; height: 34px; border-radius: 50%;
+  background: radial-gradient(circle at 32% 32%, #fff, var(--accent));
+  border: 0; cursor: grab;
+  box-shadow: 0 14px 28px rgba(0,0,0,.45), 0 0 0 14px rgba(192,132,252,.13);
+}
+.journey__handle:active { cursor: grabbing; }
+
+/* popover following handle */
+.journey__popover { position: absolute; top: 16px; left: 50%; transform: translateX(-50%); transition: left .18s cubic-bezier(.2,.8,.2,1); display:none;}
+.journey__popover-inner {
+  width: min(520px, 86vw);
+  background: rgba(0,0,0,.6); border: 1px solid rgba(255,255,255,.12);
+  backdrop-filter: blur(10px); border-radius: 14px;
+  padding: 12px 14px; box-shadow: 0 24px 60px rgba(0,0,0,.5);
+}
+.journey__popover-date { color: var(--sub); font-size: .85rem; margin-bottom: 4px; opacity: .95; }
+.journey__popover-title { font-weight: 650; margin: 0 0 6px; letter-spacing: -.01em; }
+.journey__popover-desc { color: var(--text-dim); margin: 0; line-height: 1.45; }
+.journey__popover-link {
+  display: inline-flex; margin-top: 8px; color: var(--accent); text-decoration: none;
+}
+.journey__popover-link:hover { text-decoration: underline; }
+
+/* Cards carousel */
+.journey__cards {
+  --gap: calc(14px * var(--zoom));
+  display: grid; grid-auto-flow: column;
+  gap: var(--gap);
+  overflow-x: auto; scroll-snap-type: x mandatory;
+  padding: 6px 6px 6px 6px; margin-top: 8px;
+  scrollbar-width: none;
+}
+.journey__cards::-webkit-scrollbar { display: none; }
+
+.journey__card {
+  scroll-snap-align: center;
+  min-width: clamp(280px, calc(440px * var(--zoom)), 680px);
+  max-width: min(92vw, 820px);
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.1);
+  backdrop-filter: blur(10px);
+  border-radius: 16px; padding: 16px;
+  box-shadow: 0 20px 48px rgba(0,0,0,.45);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.journey__card:hover { transform: translateY(-2px); box-shadow: 0 30px 84px rgba(0,0,0,.55); }
+.journey__card-date { color: var(--sub); font-size: .85rem; margin-bottom: 6px; }
+.journey__card-title { margin: 0 0 6px; font-weight: 650; letter-spacing: -.01em; }
+.journey__card-desc { color: var(--text-dim); margin: 0; }
+.journey__card-link { display: inline-block; margin-top: 10px; color: var(--accent); text-decoration: none; }
+.journey__card-link:hover { text-decoration: underline; }
+
+@media (max-width: 640px) {
+  .journey__rail { height: 260px; padding-bottom: 78px; }
+  .journey__popover-inner { width: calc(100vw - 32px); }
+}
+
+
+

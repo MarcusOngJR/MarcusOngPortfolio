@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About • marcus.dev</title>
+  <title>About • Marcus Ong</title>
 
   <link rel="stylesheet" href="CSS/about.css"/>
 
@@ -19,8 +19,8 @@
   <!-- NAVBAR -->
   <header class="site-header">
     <nav class="nav container">
-      <a href="index.html" class="nav__brand">
-        marcus<span class="accent">.dev</span>
+      <a href="about.html" class="nav__brand">
+        Marcus<span class="accent">Ong</span>
       </a>
 
       <ul class="nav__links">
@@ -111,24 +111,22 @@
           <article class="project-card" tabindex="0">
             <div class="project-card__head">
               <div class="project-card__titles">
-                <h3 class="project-card__name">SeniorSync Elderly Care Enhancement Web App </h3>
+                <h3 class="project-card__name">Oops! Something went wrong</h3>
                 <span class="project-card__meta">
-                  BED Project @ Ngee Ann Polytechnic · 2025
                 </span>
               </div>
               <a
                 class="project-card__link"
-                href="case_studies/seniorsync.html"
+                href="archive.html"
                 target="_blank"
                 rel="noopener noreferrer">
-                Case Study →
+                To Archive →
               </a>
             </div>
 
             <p class="project-card__body">
-              Built a web application to promote elderly care collaboration for Caretakers and their seniors, whilst improving seniors' quality of life.
-              Features includes medication reminders, budget tracking, event registration and GPS traveling aid.
-              On Board AI chatbot to assist elderly users with personalised health advice.
+                  Featured Projects not currently available
+                  Do check out my archive for other projects!
             </p>
           </article>
 
@@ -136,24 +134,22 @@
           <article class="project-card" tabindex="0">
             <div class="project-card__head">
               <div class="project-card__titles">
-                <h3 class="project-card__name">Echo System Productivity Software</h3>
+                <h3 class="project-card__name">Oops! Something went wrong</h3>
                 <span class="project-card__meta">
-                  IMP Project @ Ngee Ann Polytechnic · 2024
                 </span>
               </div>
               <a
                 class="project-card__link"
-                href="case_studies/echosystem.html"
+                href="carchive.html"
                 target="_blank"
                 rel="noopener noreferrer">
-                Case Study →
+                To Archive →
               </a>
             </div>
 
             <p class="project-card__body">
-              Developed a desktop productivity software MVP to help users manage tasks, notes, and schedules efficiently.
-              Integrated features such as task prioritization, note-taking with rich text formatting, and calendar synchronization.
-              On Board AI assistant to keep user company during long isolating work-at-home sessions.
+                Featured Projects not currently available
+                Do check out my archive for other projects!
             </p>
           </article>
 
@@ -161,6 +157,52 @@
       </div>
             <div class="scroll-prompt">Scroll ↓</div>
     </section>
+
+<!-- SLIDE 3: MY JOURNEY (REBUILT) -->
+<section class="slide" data-index="3">
+  <div class="slide-content container journey">
+    <div class="journey__header">
+      <div>
+        <h2 class="section-heading">My Journey</h2>
+        <h3 class="journey__title">Explore milestones—drag, scroll, or autoplay</h3>
+      </div>
+
+      <div class="journey__controls" role="toolbar" aria-label="Journey controls">
+        <button class="journey__btn journey__btn--prev" aria-label="Previous">←</button>
+        <button class="journey__btn journey__btn--play" aria-label="Play">▶</button>
+        <button class="journey__btn journey__btn--next" aria-label="Next">→</button>
+
+      </div>
+    </div>
+
+    <!-- RAIL -->
+    <div class="journey__rail" aria-label="Interactive timeline">
+      <div class="journey__track"></div>
+      <div class="journey__markers" aria-hidden="true"></div>
+
+      <!-- Draggable handle -->
+      <button class="journey__handle" aria-label="Timeline scrubber"></button>
+
+      <!-- Floating popover -->
+      <div class="journey__popover" role="dialog" aria-live="polite">
+        <div class="journey__popover-inner">
+          <div class="journey__popover-date">—</div>
+          <div class="journey__popover-title">—</div>
+          <div class="journey__popover-desc">—</div>
+          <a class="journey__popover-link" href="#" target="_blank" rel="noopener" hidden>Open →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARDS (scroll-snap) -->
+    <div class="journey__cards" aria-label="Milestone details (scroll horizontally)">
+      <!-- cards injected by JS -->
+    </div>
+  </div>
+
+  <div class="scroll-prompt">Scroll ↓</div>
+</section>
+
 
   </main>
 
