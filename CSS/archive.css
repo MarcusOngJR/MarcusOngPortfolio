@@ -1,0 +1,231 @@
+:root{
+  --bg:#000;
+  --text:#fff;
+  --text-primary:#fff;      /* added for navbar */
+  --text-dim:#9ca3af;       /* added for navbar */
+  --dim:#9ca3af;
+  --accent:#c084fc;
+  --sub:#60a5fa;
+  --border:rgba(255,255,255,.08);
+  --border-color:rgba(255,255,255,.08); /* added for navbar line */
+  --card:rgba(255,255,255,.04);
+  --card2:rgba(255,255,255,.06);
+  --r-lg:18px;--r-md:12px;--r-sm:8px;
+}
+html,body{height:100%;}
+body{
+  margin:0;                 /* fixed default margin */
+  background:var(--bg);
+  color:var(--text);
+  font:14px/1.5 system-ui,-apple-system,Segoe UI,Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+.container{max-width:1280px;margin:0 auto;padding:16px;}
+
+/* =========================================
+   NAVBAR
+========================================= */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-color);
+}
+.nav {
+  min-height: 4rem;
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%; max-width: 1280px; margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.nav__brand {
+  font-size: 1rem; font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none; letter-spacing: -0.03em; white-space: nowrap;
+}
+.nav__brand .accent { color: var(--accent); }
+.nav__links { display:flex; align-items:center; gap:1.25rem; list-style:none; margin:0; padding:0; }
+.nav__link {
+  font-size:.9rem; font-weight:500; color: var(--text-dim);
+  text-decoration:none; transition: color .15s ease; white-space:nowrap;
+}
+.nav__link:hover { color: var(--accent); }
+.nav__link--active { color: var(--text-primary); }
+
+/* Push content below fixed header */
+.container { padding-top: calc(4rem + 16px); }
+
+/* =========================================
+   App Shell
+========================================= */
+.archive{
+  display:grid;
+  grid-template-columns:260px 1fr;
+  grid-template-rows:auto 1fr;
+  gap:12px; min-height:calc(100vh - 5rem);
+}
+header.archive__top{
+  grid-column:1/-1; display:flex; align-items:center; justify-content:space-between;
+  padding:10px 12px; background:rgba(255,255,255,.03);
+  border:1px solid var(--border); border-radius:var(--r-lg); backdrop-filter:blur(10px)
+}
+.brand{display:flex; gap:10px; align-items:center; font-weight:700; letter-spacing:-.02em}
+.brand .dot{color:var(--accent)}
+.tools{display:flex; gap:8px; align-items:center}
+.chip{border:1px solid var(--border); background:rgba(255,255,255,.05); color:#fff; border-radius:999px; padding:.4rem .7rem; font-weight:600}
+
+/* Sidebar */
+.sidebar{
+  border:1px solid var(--border);
+  background:rgba(255,255,255,.03);
+  border-radius:var(--r-lg); padding:8px; overflow:auto
+}
+.tree{list-style:none; margin:0; padding:6px}
+.node{--pad:12px}
+.node button{
+  all:unset; display:flex; align-items:center; gap:8px; width:100%;
+  padding:8px var(--pad); border-radius:10px; cursor:pointer; color:var(--text)
+}
+.node button:hover{background:rgba(255,255,255,.06)}
+.node .twist{width:18px; text-align:center; color:var(--dim)}
+.node .ic{width:18px; text-align:center}
+.node .label{flex:1}
+.children{margin-left:24px; border-left:1px dashed rgba(255,255,255,.12); padding-left:8px}
+.node[aria-expanded="false"] > .children{display:none}
+.node.active > button{background:rgba(192,132,252,.14); outline:1px solid rgba(192,132,252,.25)}
+
+/* Main area */
+.main{
+  border:1px solid var(--border); background:rgba(255,255,255,.03);
+  border-radius:var(--r-lg); padding:10px; display:grid; grid-template-rows:auto auto 1fr
+}
+.crumbs{display:flex; align-items:center; gap:8px; color:var(--dim); padding:6px 8px}
+.crumbs a{color:var(--sub); text-decoration:none}
+.crumbs b{color:#fff}
+.searchbar{display:flex; gap:8px; align-items:center; padding:6px}
+.searchbar input{
+  flex:1; background:rgba(255,255,255,.06); border:1px solid var(--border);
+  color:#fff; border-radius:10px; padding:10px
+}
+.seg{display:inline-flex; border:1px solid var(--border); border-radius:10px; overflow:hidden}
+.seg button{background:transparent; color:#fff; border:0; padding:8px 10px; cursor:pointer}
+.seg button[aria-pressed="true"]{background:rgba(255,255,255,.08)}
+
+/* Grid / List */
+.grid{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; padding:8px}
+@media (max-width:1000px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.archive{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
+
+.list{display:grid; gap:8px; padding:8px}
+.list .card{display:grid; grid-template-columns:1fr auto; align-items:center}
+.list .card .desc{grid-column:1/-1}
+
+/* Card */
+.card{
+  position:relative; border:1px solid var(--border); background:var(--card);
+  border-radius:14px; padding:14px; display:grid; gap:6px;
+  transition:transform .15s ease, box-shadow .2s ease, background .2s ease; cursor:pointer
+}
+.card:hover{transform:translateY(-2px); background:var(--card2); box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.card .meta{display:flex; gap:8px; align-items:center; color:var(--dim); font-size:12px}
+.tag{padding:.1rem .45rem; border:1px solid var(--border); border-radius:999px; background:rgba(255,255,255,.05); font-weight:700; font-size:11px}
+.title{font-weight:650; letter-spacing:-.01em; margin:2px 0}
+.desc{color:var(--dim); font-size:13px}
+
+
+.btn{border:1px solid var(--border); background:rgba(255,255,255,.06); color:#fff; border-radius:10px; padding:.55rem .9rem; font-weight:700; cursor:pointer}
+.btn.accent{border-color:rgba(192,132,252,.35); color:#fff; position:relative; overflow:hidden}
+.btn.accent::before{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(90deg,rgba(192,132,252,.15),rgba(96,165,250,.15));
+  transform:scaleX(0); transform-origin:left; transition:transform .35s ease
+}
+.btn.accent:hover::before{transform:scaleX(1)}
+
+.empty{opacity:.7; border:1px dashed var(--border); border-radius:14px; padding:30px; text-align:center}
+
+/* ===== Fixed-height grid cards ===== */
+:root { --card-h: 180px; }               /* tweak as you like */
+
+.grid .card{
+  height: var(--card-h);
+  display: grid;
+  grid-template-rows: auto auto 1fr;     /* title / meta / desc fills */
+  overflow: hidden;                      /* hide overflow content */
+}
+
+/* --- Fixed vertical row spacing (10px) --- */
+.grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 12px;    /* keep your column spacing */
+  row-gap: 10px;       /* fixed vertical spacing between rows */
+  padding: 8px;
+}
+@media (max-width:1000px){ .grid{ grid-template-columns: repeat(2, 1fr); column-gap: 12px; row-gap: 10px; } }
+@media (max-width:640px){ .grid{ grid-template-columns: 1fr; column-gap: 12px; row-gap: 10px; } }
+
+/* List view vertical spacing */
+/* Keep rows tight even when the container is taller than the content */
+.grid,
+.list{
+  align-content: start;     /* stop vertical space distribution */
+  justify-content: start;   /* (optional) keep columns pinned left */
+}
+
+/* Ensure the main panel doesn't force weird stretching */
+.main{
+  grid-template-rows: auto auto minmax(0, 1fr); /* allow the content row to shrink */
+}
+
+/* If you ever make #grid scrollable later, this prevents growth artifacts */
+#grid{
+  min-height: 0;
+}
+/* --- Remove bottom scrollbar in left explorer --- */
+.sidebar{
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,.03);
+  border-radius: var(--r-lg);
+  padding: 8px;
+  overflow-y: auto;     /* only vertical scroll */
+  overflow-x: hidden;   /* hide horizontal scroll */
+}
+
+/* Prevent horizontal overflow from long labels/buttons */
+.tree{ list-style: none; margin: 0; padding: 6px; }
+.node button{ min-width: 0; }  /* allow shrink */
+.node .label{
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;  /* truncate long folder names */
+}
+.children{ margin-left: 24px; border-left: 1px dashed rgba(255,255,255,.12); padding-left: 8px; }
+
+
+/* =========================================================
+   In-Progress Notice
+========================================================= */
+.inprogress{
+  margin-top: 20px;
+  padding: 14px 18px;
+  border: 1px dashed var(--border);
+  border-radius: var(--r-lg);
+  background: rgba(255, 255, 255, 0.185);
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: -0.01em;
+  backdrop-filter: blur(6px);
+  position: fixed;
+  left: 50%;
+  bottom: 30px;
+}
+.inprogress .emoji{
+  font-size: 1.2rem;
+}

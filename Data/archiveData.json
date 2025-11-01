@@ -1,0 +1,238 @@
+{
+  "name": "Root",
+  "type": "folder",
+  "children": [
+    {
+      "name": "Achievements",
+      "icon": "🏆",
+      "type": "folder",
+      "children": [
+        {
+          "id": "ach-directorlist-2024",
+          "type": "file",
+          "title": "October Semester Director's List • Level 1",
+          "year": 2024,
+          "tag": "Academic",
+          "desc": "Achieved Top 10% performance across Diploma in IT.",
+          "link": "",
+          "tech": ["Ngee Ann Polytechnic"]
+        },
+        {
+          "id": "ach-edusave-gpa-2025",
+          "type": "file",
+          "title": "Edusave Certificate of Academic Achievement",
+          "year": 2025,
+          "tag": "MOE Award",
+          "desc": "Achieved Top 25% in Level and Course.",
+          "link": "",
+          "tech": []
+        },
+        {
+          "id": "ach-edusave-progress-2023",
+          "type": "file",
+          "title": "Edusave Good Progress Award",
+          "year": 2023,
+          "tag": "MOE Award",
+          "desc": "Achieved Top 10% of Level and Course in terms of improvement.",
+          "link": "",
+          "tech": []
+        }
+      ]
+    },
+    {
+      "name": "Certifications",
+      "icon": "📜",
+      "type": "folder",
+      "children": [
+        {
+          "id": "cert-agile-google",
+          "type": "file",
+          "title": "Agile Project Management",
+          "year": 2025,
+          "tag": "Google",
+          "desc": "Project Management course certification.",
+          "link": "",
+          "tech": ["Agile", "PM"]
+        },
+        {
+          "id": "cert-psm1",
+          "type": "file",
+          "title": "Professional Scrum Master I",
+          "year": 2025,
+          "tag": "Scrum.org",
+          "desc": "Demonstrates proficiency in Scrum framework.",
+          "link": "",
+          "tech": ["Scrum"]
+        },
+        {
+          "id": "cert-pcep-2024",
+          "type": "file",
+          "title": "PCEP • Certified Entry-Level Python Programmer",
+          "year": 2024,
+          "tag": "OpenEDG",
+          "desc": "Foundational Python programming certification.",
+          "link": "",
+          "tech": ["Python"]
+        }
+      ]
+    },
+    {
+      "name": "Previous Projects",
+      "icon": "📁",
+      "type": "folder",
+      "children": [
+        {
+          "id": "proj-echo",
+          "type": "file",
+          "title": "Echo System IMP Project",
+          "year": 2025,
+          "tag": "Software Developer",
+          "desc": "Built a workflow productivity enhancement MVP integrated with AI; sole developer managing end-to-end delivery.",
+          "link": "",
+          "tech": ["C#", "TypeScript", "AI", "Web"]
+        },
+        {
+          "id": "proj-seniorsync",
+          "type": "file",
+          "title": "SeniorSync BED Project",
+          "year": 2024,
+          "tag": "Full-Stack • Scrum Master",
+          "desc": "Elderly & caretaker Quality-of-Life web app MVP; practiced Scrum throughout. Module Grade: AD.",
+          "link": "",
+          "tech": ["JS", "Express.js", "SQL"]
+        },
+        {
+          "id": "proj-mokesell",
+          "type": "file",
+          "title": "MokeSell FED Project",
+          "year": 2024,
+          "tag": "Front-End",
+          "desc": "E-commerce website focusing on UI/UX; integrated external APIs for user features. Module Grade: A.",
+          "link": "",
+          "tech": ["HTML", "CSS", "JavaScript", "APIs"]
+        },
+        {
+          "id": "proj-mc-plugins",
+          "type": "file",
+          "title": "Minecraft Plugins Suite",
+          "year": 2024,
+          "tag": "Spigot",
+          "desc": "Paper 1.21.x plugins: FlamingShield, MythicalDragonEgg, DainSleif, and more.",
+          "link": "",
+          "tech": ["Java", "Spigot API"]
+        }
+      ]
+    },
+    {
+      "name": "Awards",
+      "icon": "🎖️",
+      "type": "folder",
+      "children": [
+        {
+          "id": "awards-directorslist",
+          "type": "file",
+          "title": "Director's List (Oct Semester)",
+          "year": 2024,
+          "tag": "Top 10%",
+          "desc": "Recognized for academic excellence.",
+          "link": "",
+          "tech": []
+        },
+        {
+          "id": "awards-edusave-progress",
+          "type": "file",
+          "title": "Edusave Good Progress Award",
+          "year": 2023,
+          "tag": "MOE",
+          "desc": "Top 10% improvement within cohort.",
+          "link": "",
+          "tech": []
+        },
+        {
+          "id": "awards-edusave-achievement",
+          "type": "file",
+          "title": "Edusave Certificate of Academic Achievement",
+          "year": 2025,
+          "tag": "MOE",
+          "desc": "Top 25% in Level and Course.",
+          "link": "",
+          "tech": []
+        }
+      ]
+    },
+    {
+      "name": "Involvements",
+      "icon": "🤝",
+      "type": "folder",
+      "children": [
+        {
+          "id": "cca-ai-ctf-2025",
+          "type": "file",
+          "title": "AI-CTF SG",
+          "year": 2025,
+          "tag": "CCA / Competition",
+          "desc": "Attempted adversarial ML & prompt-injection challenges; experience in AI security and web pen-testing.",
+          "link": "",
+          "tech": ["AI Security"]
+        },
+        {
+          "id": "cca-fop-2025",
+          "type": "file",
+          "title": "ICT Society • Freshmen Orientation Logistics",
+          "year": 2025,
+          "tag": "CCA",
+          "desc": "Supported logistics for FOP 2025.",
+          "link": "",
+          "tech": []
+        },
+        {
+          "id": "public-service-elderly-2025",
+          "type": "file",
+          "title": "Foong Shoon Fui Kuan Elderly Workshop",
+          "year": 2025,
+          "tag": "Public Service",
+          "desc": "Conducted a mobile app workshop (Grab & Google Maps) for seniors.",
+          "link": "",
+          "tech": ["Community"]
+        },
+        {
+          "id": "oip-shanghai-2025",
+          "type": "file",
+          "title": "Shanghai University Overseas Immersion Programme",
+          "year": 2025,
+          "tag": "OIP",
+          "desc": "7-day immersion; gained cross-cultural communication and adaptability.",
+          "link": "",
+          "tech": ["Global Readiness"]
+        }
+      ]
+    },
+    {
+      "name": "Education",
+      "icon": "🎓",
+      "type": "folder",
+      "children": [
+        {
+          "id": "edu-np",
+          "type": "file",
+          "title": "Diploma in Infocomm Technology (Software Engineering)",
+          "year": 2025,
+          "tag": "Ngee Ann Polytechnic",
+          "desc": "CGPA 3.79 • Minor in Global Readiness • Diploma Plus: Advanced Computing Mathematics.",
+          "link": "",
+          "tech": ["C#", "C++", "Java", "Python", "HTML", "CSS", "JavaScript", "Express.js", "SQL", "RestDB", "MSSQL", "Git", "Jira"]
+        },
+        {
+          "id": "edu-beatty",
+          "type": "file",
+          "title": "Beatty Secondary School (GCE O-Levels)",
+          "year": 2024,
+          "tag": "L1R4: 14",
+          "desc": "Express stream • Additional Math, Pure Physics & Chemistry.",
+          "link": "",
+          "tech": []
+        }
+      ]
+    }
+  ]
+}

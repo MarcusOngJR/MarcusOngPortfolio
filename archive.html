@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Archive • Marcus Ong</title>
+  <link rel="stylesheet" href="CSS/archive.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <nav class="nav">
+      <a href="about.html" class="nav__brand">
+        Marcus <span class="accent">Ong</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="archive.html" class="nav__link nav__link--active">Archive</a></li>
+        <li><a href="credit.html" class="nav__link">Credits</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="inprogress">
+    <span class="emoji">🚧</span>
+    <span class="msg">File Content In Progress — Plans to have blogs for each file coming soon!</span>
+  </div>
+
+  <div class="container">
+    
+    <div class="archive" id="app">
+      <header class="archive__top">
+        <div class="brand">Archive <span class="dot">•</span> <span style="color:var(--accent)">Explorer</span></div>
+        <div class="tools">
+          <span class="chip" id="countChip">0 items</span>
+          <div class="seg" role="group" aria-label="View toggle">
+            <button id="viewGrid" aria-pressed="true">Grid</button>
+            <button id="viewList" aria-pressed="false">List</button>
+          </div>
+        </div>
+      </header>
+
+      
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <ul class="tree" id="tree" aria-label="Folders"></ul>
+      </aside>
+
+      <!-- Main -->
+      <section class="main">
+        <nav class="crumbs" id="crumbs" aria-label="Breadcrumbs">Root</nav>
+        <div class="searchbar">
+          <input id="q" type="search" placeholder="Search title, tag, year, tech…" aria-label="Search archive" />
+          <div class="seg" role="group" aria-label="Sort">
+            <button id="sortRecent" aria-pressed="true">Recent</button>
+            <button id="sortAZ" aria-pressed="false">A–Z</button>
+          </div>
+        </div>
+        <div id="grid" class="grid" role="list"></div>
+      </section>
+    </div>
+  </div>
+
+  
+
+  <script src="JS/archive.js"></script>
+</body>
+</html>

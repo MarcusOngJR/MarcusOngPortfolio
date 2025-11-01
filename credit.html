@@ -1,2 +1,81 @@
-<a href="https://www.vecteezy.com/free-videos/3d-rendering">3d Rendering Stock Videos by Vecteezy</a>
-<a href="https://www.vecteezy.com/free-videos/laptop">Laptop Stock Videos by Vecteezy</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Credits • Marcus Ong</title>
+  <link rel="stylesheet" href="CSS/archive.css" />
+  <link rel="stylesheet" href="CSS/credit.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <nav class="nav">
+      <a href="about.html" class="nav__brand">
+        Marcus <span class="accent">Ong</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="archive.html" class="nav__link">Archive</a></li>
+        <li><a href="credit.html" class="nav__link nav__link--active">Credits</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <header class="credits__top">
+      <div class="brand">Credits <span class="dot">•</span> <span style="color:var(--accent)">Acknowledgements</span></div>
+      <div class="tools">
+        <a class="btn" href="about.html">Back to About</a>
+      </div>
+    </header>
+
+    <main class="credits">
+      <!-- Intro -->
+      <section class="section hero">
+        <h1 class="title">Thank you to the tools & people that made this site possible.</h1>
+        <p class="subtitle">This page lists frameworks, libraries, icons, inspiration, and special thanks used across <b>About</b> and <b>Archive</b>.</p>
+      </section>
+
+      <!-- Built With -->
+      <section class="section">
+        <h2 class="section__title">Built With</h2>
+        <div id="builtWith" class="grid3"></div>
+      </section>
+
+      <!-- Assets & References -->
+      <section class="section">
+        <h2 class="section__title">Assets & References</h2>
+        <div id="assets" class="grid3"></div>
+      </section>
+
+      <!-- Special Thanks -->
+      <section class="section">
+        <h2 class="section__title">Special Thanks</h2>
+        <ul id="thanks" class="thanks__list"></ul>
+      </section>
+
+      <!-- License & Contact -->
+      <section class="section">
+        <h2 class="section__title">License & Contact</h2>
+        <div class="license">
+          <p>This portfolio’s code is shared for learning and inspiration. Please credit if you adapt significant parts.</p>
+          <ul class="bullets">
+            <li>Personal work © <span id="yearNow"></span> Marcus Ong</li>
+            <li>3rd-party libs retain their original licenses</li>
+          </ul>
+        </div>
+        <div class="contact">
+          <a class="btn accent" href="mailto:ongmarc0209@gmail.com">Email</a>
+          <a class="btn" href="https://github.com/Marcusongjr" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="about.html">About Page</a>
+        </div>
+      </section>
+    </main>
+
+    <button id="toTop" class="toTop" aria-label="Back to top">↑</button>
+  </div>
+
+  <script src="JS/credit.js"></script>
+</body>
+</html>

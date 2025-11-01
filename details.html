@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Details • Marcus Ong</title>
+  <link rel="stylesheet" href="CSS/archive.css" />
+  <link rel="stylesheet" href="CSS/details.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <nav class="nav">
+      <a href="about.html" class="nav__brand">
+        Marcus <span class="accent">Ong</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="about.html" class="nav__link">About</a></li>
+        <li><a href="archive.html" class="nav__link nav__link--active">Archive</a></li>
+        <li><a href="credit.html" class="nav__link">Credits</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <!-- Breadcrumbs -->
+    <nav class="crumbs" id="crumbs">Loading…</nav>
+
+    <article class="details" id="details">
+      <div class="notfound" id="notfound" style="display:none">
+        Item not found. <a class="backlink" href="archive.html">Back to Archive</a>
+      </div>
+
+      <header class="details__head" id="head" style="display:none">
+        <div>
+          <div class="details__title" id="title"></div>
+          <div class="details__meta" id="meta"></div>
+        </div>
+        <div class="actions">
+          <a id="openBtn" class="btn accent" target="_blank" rel="noopener">Open ↗</a>
+          <button id="copyBtn" class="btn" type="button">Copy Link</button>
+          <a class="btn" href="archive.html">Back</a>
+        </div>
+      </header>
+
+      <section id="desc" class="desc"></section>
+      <section id="extra"></section>
+    </article>
+  </div>
+
+  <script src="JS/details.js"></script>
+</body>
+</html>
