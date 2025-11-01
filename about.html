@@ -20,7 +20,7 @@
   <header class="site-header">
     <nav class="nav container">
       <a href="about.html" class="nav__brand">
-        Marcus<span class="accent">Ong</span>
+        Marcus <span class="accent">Ong</span>
       </a>
 
       <ul class="nav__links">
@@ -158,50 +158,214 @@
             <div class="scroll-prompt">Scroll ↓</div>
     </section>
 
-<!-- SLIDE 3: MY JOURNEY (REBUILT) -->
-<section class="slide" data-index="3">
-  <div class="slide-content container journey">
-    <div class="journey__header">
-      <div>
-        <h2 class="section-heading">My Journey</h2>
-        <h3 class="journey__title">Explore milestones—drag, scroll, or autoplay</h3>
-      </div>
+    <!-- SLIDE 3: MY JOURNEY (REBUILT) -->
+    <section class="slide" data-index="3">
+      <div class="slide-content container journey">
+        <div class="journey__header">
+          <div>
+            <h2 class="section-heading">My Journey</h2>
+            <h3 class="journey__title">Explore milestones—drag, scroll, or autoplay</h3>
+          </div>
 
-      <div class="journey__controls" role="toolbar" aria-label="Journey controls">
-        <button class="journey__btn journey__btn--prev" aria-label="Previous">←</button>
-        <button class="journey__btn journey__btn--play" aria-label="Play">▶</button>
-        <button class="journey__btn journey__btn--next" aria-label="Next">→</button>
+          <div class="journey__controls" role="toolbar" aria-label="Journey controls">
+            <button class="journey__btn journey__btn--prev" aria-label="Previous">←</button>
+            <button class="journey__btn journey__btn--play" aria-label="Play">▶</button>
+            <button class="journey__btn journey__btn--next" aria-label="Next">→</button>
 
-      </div>
-    </div>
+          </div>
+        </div>
 
-    <!-- RAIL -->
-    <div class="journey__rail" aria-label="Interactive timeline">
-      <div class="journey__track"></div>
-      <div class="journey__markers" aria-hidden="true"></div>
+        <!-- RAIL -->
+        <div class="journey__rail" aria-label="Interactive timeline">
+          <div class="journey__track"></div>
+          <div class="journey__markers" aria-hidden="true"></div>
 
-      <!-- Draggable handle -->
-      <button class="journey__handle" aria-label="Timeline scrubber"></button>
+          <!-- Draggable handle -->
+          <button class="journey__handle" aria-label="Timeline scrubber"></button>
 
-      <!-- Floating popover -->
-      <div class="journey__popover" role="dialog" aria-live="polite">
-        <div class="journey__popover-inner">
-          <div class="journey__popover-date">—</div>
-          <div class="journey__popover-title">—</div>
-          <div class="journey__popover-desc">—</div>
-          <a class="journey__popover-link" href="#" target="_blank" rel="noopener" hidden>Open →</a>
+          <!-- Floating popover -->
+          <div class="journey__popover" role="dialog" aria-live="polite">
+            <div class="journey__popover-inner">
+              <div class="journey__popover-date">—</div>
+              <div class="journey__popover-title">—</div>
+              <div class="journey__popover-desc">—</div>
+              <a class="journey__popover-link" href="#" target="_blank" rel="noopener" hidden>Open →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARDS (scroll-snap) -->
+        <div class="journey__cards" aria-label="Milestone details (scroll horizontally)">
+          <!-- cards injected by JS -->
         </div>
       </div>
-    </div>
 
-    <!-- CARDS (scroll-snap) -->
-    <div class="journey__cards" aria-label="Milestone details (scroll horizontally)">
-      <!-- cards injected by JS -->
-    </div>
-  </div>
+      <div class="scroll-prompt">Scroll ↓</div>
+    </section>
 
-  <div class="scroll-prompt">Scroll ↓</div>
-</section>
+
+    <!-- SLIDE 4: 3D SKILLS ORBIT -->
+    <section class="slide" data-index="4">
+      <div class="slide-content container skills3d">
+        <div class="skills3d__header">
+          <h2 class="section-heading">My Skills</h2>
+          <h3 class="skills3d__title">
+            Explore my skills in <span class="accent">3D</span>  
+            <br>
+            <span class="skills3d__hint">
+              <span class="arrow">⟲</span> Rotate to explore  
+              <span class="dot">•</span>  
+              <span class="click">Click to learn more about the skill</span>
+            </span>
+          </h3>
+        </div>
+
+        <div class="skills3d__layout">
+          <!-- 3D Scene -->
+          <div class="skills3d__scene">
+            <div class="skills3d__galaxy" id="skillsGalaxy3D">
+              <div class="skills3d__core">Marcus</div>
+            </div>
+          </div>
+
+          <!-- Side Info Panel -->
+          <aside class="skills3d__info" id="skillsPreview3D">
+            <h4 class="skills3d__preview-name">Select a Skill</h4>
+            <p class="skills3d__preview-desc">Spin the galaxy and click on a skill to learn more.</p>
+          </aside>
+        </div>
+      </div>
+      <div class="scroll-prompt">Scroll ↓</div>
+    </section>
+
+
+    <!-- SLIDE 5: CONTACT ME -->
+    <section class="slide" data-index="5">
+      <div class="slide-content container contact">
+        <header class="contact__header">
+          <h2 class="section-heading">Contact</h2>
+          <h3 class="contact__title">
+            Let’s connect — <span class="accent">say hi</span> or explore the links
+          </h3>
+          <p class="contact__subtitle">
+            Hover a card • Press <kbd>Enter</kbd> to open • Click ✦ to copy
+          </p>
+        </header>
+
+        <div class="contact__grid" role="list">
+          <!-- Email -->
+          <article class="contact-card" role="listitem" tabindex="0" data-url="mailto:ongmarc0209@gmail.com">
+            <div class="contact-card__body">
+              <div class="contact-card__icon">✉️</div>
+              <h4 class="contact-card__name">Email</h4>
+              <p class="contact-card__desc">ongmarc0209@gmail.com</p>
+              <div class="contact-card__actions">
+                <button class="contact-card__copy" data-copy="ongmarc0209@gmail.com" aria-label="Copy email">
+                  <span class="icon icon--copy">✦</span>
+                  <span class="icon icon--check">
+                    <svg viewBox="0 0 20 20" width="16" height="16">
+                      <path d="M4 10.5l4 4 8-10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </button>
+                <a class="contact-card__open" href="mailto:ongmarc0209@gmail.com" rel="noopener">Open →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Telegram -->
+          <article class="contact-card" role="listitem" tabindex="0" data-url="https://t.me/Marcusongjr">
+            <div class="contact-card__body">
+              <div class="contact-card__icon">📨</div>
+              <h4 class="contact-card__name">Telegram</h4>
+              <p class="contact-card__desc">@Marcusongjr</p>
+              <div class="contact-card__actions">
+                <button class="contact-card__copy" data-copy="@Marcusongjr" aria-label="Copy Telegram handle">
+                  <span class="icon icon--copy">✦</span>
+                  <span class="icon icon--check">
+                    <svg viewBox="0 0 20 20" width="16" height="16">
+                      <path d="M4 10.5l4 4 8-10" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </button>
+                <a class="contact-card__open" href="https://t.me/Marcusongjr" target="_blank" rel="noopener">Open →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- LinkedIn -->
+          <article class="contact-card" role="listitem" tabindex="0" data-url="https://www.linkedin.com/in/marcusongjr029">
+            <div class="contact-card__body">
+              <div class="contact-card__icon">💼</div>
+              <h4 class="contact-card__name">LinkedIn</h4>
+              <p class="contact-card__desc">/in/marcusongjr029</p>
+              <div class="contact-card__actions">
+                <a class="contact-card__open" href="https://www.linkedin.com/in/marcusongjr029" target="_blank" rel="noopener">Open →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- GitHub -->
+          <article class="contact-card" role="listitem" tabindex="0" data-url="https://github.com/marcusongjr">
+            <div class="contact-card__body">
+              <div class="contact-card__icon">🧪</div>
+              <h4 class="contact-card__name">GitHub</h4>
+              <p class="contact-card__desc">/marcusongjr</p>
+              <div class="contact-card__actions">
+                <a class="contact-card__open" href="https://github.com/marcusongjr" target="_blank" rel="noopener">Open →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Portfolio -->
+          <article class="contact-card" role="listitem" tabindex="0" data-url="https://marcusongjr.com">
+            <div class="contact-card__body">
+              <div class="contact-card__icon">🌐</div>
+              <h4 class="contact-card__name">Portfolio (This Website)</h4>
+              <p class="contact-card__desc">marcusongjr.com</p>
+              <div class="contact-card__actions">
+                <a class="contact-card__open" href="https://marcusongjr.com" target="_blank" rel="noopener">Open →</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Instagram -->
+          <article class="contact-card" role="listitem" tabindex="0" data-url="https://instagram.com/marcusongjr">
+            <div class="contact-card__body">
+              <div class="contact-card__icon">📸</div>
+              <h4 class="contact-card__name">Instagram</h4>
+              <p class="contact-card__desc">@marcusongjr</p>
+              <div class="contact-card__actions">
+                <a class="contact-card__open" href="https://instagram.com/marcusongjr" target="_blank" rel="noopener">Open →</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="scroll-prompt">Scroll ↓</div>
+    </section>
+
+
+    <!-- SLIDE 6: CONCLUSION / THANK YOU -->
+    <section class="slide" data-index="6">
+      <div class="slide-content container conclusion">
+        <div class="conclusion__inner">
+          <blockquote class="conclusion__quote">
+            “In a world without magic, <span class="accent">programming</span> is the modern <span class="accent">spellbook</span>.”
+          </blockquote>
+          <p class="conclusion__thanks">
+            Thank you for taking the time to explore my journey.
+            <br />
+            Every line of code is a step toward creating something meaningful — and I’m glad you came along for the ride.
+          </p>
+          <div class="conclusion__social">
+            <a href="mailto:ongmarc0209@gmail.com" class="conclusion__btn">Get in Touch →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
 
   </main>

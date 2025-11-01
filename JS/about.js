@@ -447,5 +447,221 @@ if (!prefersReduced) {
 
 
 
+(async function init3DSkills() {
+  const res = await fetch('Data/skills.json', { cache: 'no-store' });
+  const data = await res.json();
 
+  const galaxy = document.getElementById('skillsGalaxy3D');
+  const previewName = document.querySelector('#skillsPreview3D .skills3d__preview-name');
+  const previewDesc = document.querySelector('#skillsPreview3D .skills3d__preview-desc');
+
+  galaxy.innerHTML = `<div class="skills3d__core">${data.core}</div>`;
+
+  const orbitClasses = ['orbit--lang', 'orbit--web', 'orbit--tools'];
+
+  // === Create Orbits and Planets ===
+  data.rings.forEach((ring, i) => {
+    const orbit = document.createElement('div');
+    orbit.className = `skills3d__orbit ${orbitClasses[i % orbitClasses.length]}`;
+    orbit.style.setProperty("--radius", `${150 + i * 80}px`);
+    const step = 360 / ring.items.length;
+
+    ring.items.forEach((item, idx) => {
+      const planet = document.createElement('div');
+      planet.className = 'skills3d__planet';
+      planet.textContent = item.name;
+      planet.dataset.desc = item.desc;
+
+      // Random spherical placement
+      const angleY = idx * step;
+      const angleX = (Math.random() * 80) - 40;
+      const radius = 150 + i * 80;
+
+      planet.style.transform = `
+        rotateY(${angleY}deg)
+        rotateX(${angleX}deg)
+        translateZ(${radius}px)
+      `;
+
+      planet.addEventListener('click', () => {
+        previewName.textContent = item.name;
+        previewDesc.textContent = item.desc;
+      });
+
+      orbit.appendChild(planet);
+    });
+
+    galaxy.appendChild(orbit);
+  });
+
+// === Rotation Control ===
+let rotationY = 0;
+let rotationX = -10;
+let autoSpinSpeed = 0.15; // degrees per frame
+let isDragging = false;
+let startX = 0;
+let startY = 0;
+let lastMoveTime = Date.now();
+let autoSpinPaused = false;
+
+const scene = document.querySelector('.skills3d__scene');
+
+function updateRotation() {
+  galaxy.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
+}
+
+// === Auto Spin (requestAnimationFrame loop) ===
+function animate() {
+  if (!autoSpinPaused && !isDragging) {
+    rotationY += autoSpinSpeed;
+    updateRotation();
+  }
+  requestAnimationFrame(animate);
+}
+animate();
+
+// === Drag Rotation ===
+scene.addEventListener('mousedown', e => {
+  isDragging = true;
+  startX = e.clientX;
+  startY = e.clientY;
+  scene.style.cursor = 'grabbing';
+  autoSpinPaused = true;
+});
+
+scene.addEventListener('mouseup', () => {
+  isDragging = false;
+  scene.style.cursor = 'grab';
+  lastMoveTime = Date.now();
+  // Resume auto-spin after 1.5s of inactivity
+  setTimeout(() => {
+    if (Date.now() - lastMoveTime > 1500) autoSpinPaused = false;
+  }, 1500);
+});
+
+scene.addEventListener('mouseleave', () => { isDragging = false; });
+
+scene.addEventListener('mousemove', e => {
+  if (!isDragging) return;
+  const deltaX = e.clientX - startX;
+  const deltaY = e.clientY - startY;
+
+  rotationY += deltaX * 0.3; // horizontal spin
+  rotationX -= deltaY * 0.25; // vertical tilt (inverse Y)
+
+  // 🔒 Clamp tilt (avoid flipping)
+  rotationX = Math.max(-25, Math.min(25, rotationX));
+
+  updateRotation();
+  startX = e.clientX;
+  startY = e.clientY;
+});
+
+// === Touch Support ===
+scene.addEventListener('touchstart', e => {
+  startX = e.touches[0].clientX;
+  startY = e.touches[0].clientY;
+  autoSpinPaused = true;
+});
+
+scene.addEventListener('touchmove', e => {
+  const deltaX = e.touches[0].clientX - startX;
+  const deltaY = e.touches[0].clientY - startY;
+
+  rotationY += deltaX * 0.3;
+  rotationX -= deltaY * 0.25;
+  rotationX = Math.max(-25, Math.min(25, rotationX)); // 🔒 clamp vertical tilt
+
+  updateRotation();
+  startX = e.touches[0].clientX;
+  startY = e.touches[0].clientY;
+});
+
+scene.addEventListener('touchend', () => {
+  lastMoveTime = Date.now();
+  setTimeout(() => {
+    if (Date.now() - lastMoveTime > 1500) autoSpinPaused = false;
+  }, 1500);
+});
+
+// Initial render
+updateRotation();
+
+})();
+
+(() => {
+  const cards = document.querySelectorAll('.contact-card');
+
+  cards.forEach(card => {
+    // tune these to taste
+    const PERSPECTIVE = 500;   // lower = deeper 3D
+    const RANGE_Y = 30;        // horizontal flip degrees
+    const RANGE_X = 30;        // vertical flip degrees
+
+    let rafId = null;
+
+    function calcTransform(e) {
+      const rect = card.getBoundingClientRect();
+      const cx = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+      const cy = (e.touches ? e.touches[0].clientY : e.clientY) - rect.top;
+
+      const nx = (cx / rect.width) - 0.5;   // -0.5..0.5
+      const ny = (cy / rect.height) - 0.5;  // -0.5..0.5
+
+      const rotY = nx * RANGE_Y;     // left/right
+      const rotX = -ny * RANGE_X;    // up/down (invert)
+
+      return `perspective(${PERSPECTIVE}px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(0)`;
+    }
+
+    function onMove(e) {
+      // kill any easing while moving for instantaneous response
+      card.style.transition = 'transform 0s';
+
+      const doTransform = () => {
+        card.style.transform = calcTransform(e);
+        rafId = null;
+      };
+
+      // throttle to the next frame for super-smooth updates
+      if (rafId == null) rafId = requestAnimationFrame(doTransform);
+    }
+
+    function onLeave() {
+      // re-enable a tiny ease only for the snap-back
+      card.style.transition = 'transform 0.1s ease-out';
+      card.style.transform = `perspective(${PERSPECTIVE}px) rotateX(0deg) rotateY(0deg) translateZ(0)`;
+    }
+
+    // Mouse
+    card.addEventListener('mousemove', onMove);
+    card.addEventListener('mouseleave', onLeave);
+
+    // Touch
+    card.addEventListener('touchmove', onMove, { passive: true });
+    card.addEventListener('touchend', onLeave);
+    card.addEventListener('touchcancel', onLeave);
+  });
+})();
+
+
+(() => {
+  const copyButtons = document.querySelectorAll('.contact-card__copy');
+
+  copyButtons.forEach(btn => {
+    btn.addEventListener('click', async e => {
+      e.stopPropagation();
+      const text = btn.dataset.copy;
+      if (!text) return;
+
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.classList.add('is-copied');
+        setTimeout(() => btn.classList.remove('is-copied'), 1400);
+      } catch (err) {
+        console.error('Copy failed:', err);
+      }
+    });
+  });
+})();
 

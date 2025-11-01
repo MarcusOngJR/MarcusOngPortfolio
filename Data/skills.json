@@ -1,0 +1,34 @@
+{
+  "core": "Marcus",
+  "rings": [
+    {
+      "id": "lang",
+      "items": [
+        { "name": "Java", "desc": "Used for backend and plugin development. Strong OOP foundations." },
+        { "name": "C++", "desc": "Systems-level programming with emphasis on efficiency and memory management." },
+        { "name": "Python", "desc": "Fast prototyping, data automation, and AI scripting." },
+        { "name": "JavaScript", "desc": "Frontend interactivity and modern web development." },
+        { "name": "C#", "desc": "Versatile and efficient language for web and desktop applications." }
+      ]
+    },
+    {
+      "id": "web",
+      "items": [
+        { "name": "React", "desc": "Component-based frontend framework for building dynamic interfaces." },
+        { "name": "HTML/CSS", "desc": "Clean, semantic structure with responsive design." },
+        { "name": "Node.js", "desc": "Backend JavaScript runtime for APIs and fullstack apps." },
+        { "name": "RestDB", "desc": "NoSQL cloud database for rapid prototyping and REST integration." },
+        { "name": "MSSQL", "desc": "Relational database management system for enterprise applications." }
+      ]
+    },
+    {
+      "id": "tools",
+      "items": [
+        { "name": "Git", "desc": "Version control for team-based development and open-source collaboration." },
+        { "name": "VS Code", "desc": "Lightweight code editor with extensive extension support." },
+        { "name": "IntelliJ", "desc": "Java IDE for enterprise-grade development." },
+        { "name": "Jira", "desc": "Project management tool for agile teams." }
+      ]
+    }
+  ]
+}
