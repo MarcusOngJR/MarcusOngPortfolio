@@ -15,7 +15,9 @@
           "tag": "Academic",
           "desc": "Achieved Top 10% performance across Diploma in IT.",
           "link": "",
-          "tech": ["Ngee Ann Polytechnic"]
+          "tech": [
+            "Ngee Ann Polytechnic"
+          ]
         },
         {
           "id": "ach-edusave-gpa-2025",
@@ -52,7 +54,10 @@
           "tag": "Google",
           "desc": "Project Management course certification.",
           "link": "",
-          "tech": ["Agile", "PM"]
+          "tech": [
+            "Agile",
+            "PM"
+          ]
         },
         {
           "id": "cert-psm1",
@@ -62,7 +67,9 @@
           "tag": "Scrum.org",
           "desc": "Demonstrates proficiency in Scrum framework.",
           "link": "",
-          "tech": ["Scrum"]
+          "tech": [
+            "Scrum"
+          ]
         },
         {
           "id": "cert-pcep-2024",
@@ -72,7 +79,9 @@
           "tag": "OpenEDG",
           "desc": "Foundational Python programming certification.",
           "link": "",
-          "tech": ["Python"]
+          "tech": [
+            "Python"
+          ]
         }
       ]
     },
@@ -88,8 +97,13 @@
           "year": 2025,
           "tag": "Software Developer",
           "desc": "Built a workflow productivity enhancement MVP integrated with AI; sole developer managing end-to-end delivery.",
-          "link": "",
-          "tech": ["C#", "TypeScript", "AI", "Web"]
+          "link": "ArchivePages/echosystem.html",
+          "tech": [
+            "C#",
+            "TypeScript",
+            "AI",
+            "Web"
+          ]
         },
         {
           "id": "proj-seniorsync",
@@ -99,7 +113,11 @@
           "tag": "Full-Stack • Scrum Master",
           "desc": "Elderly & caretaker Quality-of-Life web app MVP; practiced Scrum throughout. Module Grade: AD.",
           "link": "",
-          "tech": ["JS", "Express.js", "SQL"]
+          "tech": [
+            "JS",
+            "Express.js",
+            "SQL"
+          ]
         },
         {
           "id": "proj-mokesell",
@@ -109,7 +127,12 @@
           "tag": "Front-End",
           "desc": "E-commerce website focusing on UI/UX; integrated external APIs for user features. Module Grade: A.",
           "link": "",
-          "tech": ["HTML", "CSS", "JavaScript", "APIs"]
+          "tech": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "APIs"
+          ]
         },
         {
           "id": "proj-mc-plugins",
@@ -119,7 +142,10 @@
           "tag": "Spigot",
           "desc": "Paper 1.21.x plugins: FlamingShield, MythicalDragonEgg, DainSleif, and more.",
           "link": "",
-          "tech": ["Java", "Spigot API"]
+          "tech": [
+            "Java",
+            "Spigot API"
+          ]
         }
       ]
     },
@@ -173,7 +199,9 @@
           "tag": "CCA / Competition",
           "desc": "Attempted adversarial ML & prompt-injection challenges; experience in AI security and web pen-testing.",
           "link": "",
-          "tech": ["AI Security"]
+          "tech": [
+            "AI Security"
+          ]
         },
         {
           "id": "cca-fop-2025",
@@ -193,7 +221,9 @@
           "tag": "Public Service",
           "desc": "Conducted a mobile app workshop (Grab & Google Maps) for seniors.",
           "link": "",
-          "tech": ["Community"]
+          "tech": [
+            "Community"
+          ]
         },
         {
           "id": "oip-shanghai-2025",
@@ -203,7 +233,9 @@
           "tag": "OIP",
           "desc": "7-day immersion; gained cross-cultural communication and adaptability.",
           "link": "",
-          "tech": ["Global Readiness"]
+          "tech": [
+            "Global Readiness"
+          ]
         }
       ]
     },
@@ -220,7 +252,21 @@
           "tag": "Ngee Ann Polytechnic",
           "desc": "CGPA 3.79 • Minor in Global Readiness • Diploma Plus: Advanced Computing Mathematics.",
           "link": "",
-          "tech": ["C#", "C++", "Java", "Python", "HTML", "CSS", "JavaScript", "Express.js", "SQL", "RestDB", "MSSQL", "Git", "Jira"]
+          "tech": [
+            "C#",
+            "C++",
+            "Java",
+            "Python",
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Express.js",
+            "SQL",
+            "RestDB",
+            "MSSQL",
+            "Git",
+            "Jira"
+          ]
         },
         {
           "id": "edu-beatty",

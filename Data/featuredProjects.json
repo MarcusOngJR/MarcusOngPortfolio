@@ -1,18 +1,18 @@
 {
     "featuredProjects": [
         {
-        "title": "SeniorSync Elderly Care Enhancement Web App",
-        "info": "BED Project @ Ngee Ann Polytechnic · 2025",
-        "description": "Built a web application to promote elderly care collaboration for Caretakers and their seniors, whilst improving seniors' quality of life. Features includes medication reminders, budget tracking, event registration and GPS traveling aid. On Board AI chatbot to assist elderly users with personalised health advice.",
-        "image": "images/seniorsync.png",
-        "link": "/details.html?id=proj-seniorsync"
+            "title": "SeniorSync Elderly Care Enhancement Web App",
+            "info": "BED Project @ Ngee Ann Polytechnic · 2025",
+            "description": "Built a web application to promote elderly care collaboration for Caretakers and their seniors, whilst improving seniors' quality of life. Features includes medication reminders, budget tracking, event registration and GPS traveling aid. On Board AI chatbot to assist elderly users with personalised health advice.",
+            "image": "images/seniorsync.png",
+            "link": "details.html?id=proj-seniorsync"
         },
         {
-        "title": "Echo System Productivity Software",
-        "info": "IMP Project @ Ngee Ann Polytechnic · 2024",
-        "description": "Developed a desktop productivity software MVP to help users manage tasks, notes, and schedules efficiently. Integrated features such as task prioritization, note-taking with rich text formatting, and calendar synchronization. On Board AI assistant to keep user company during long isolating work-at-home sessions.",
-        "image": "images/echosystem.png",
-        "link": "/details.html?id=proj-echo"
+            "title": "Echo System Productivity Software",
+            "info": "IMP Project @ Ngee Ann Polytechnic · 2024",
+            "description": "Developed a desktop productivity software MVP to help users manage tasks, notes, and schedules efficiently. Integrated features such as task prioritization, note-taking with rich text formatting, and calendar synchronization. On Board AI assistant to keep user company during long isolating work-at-home sessions.",
+            "image": "images/echosystem.png",
+            "link": "ArchivePages/echosystem.html"
         }
     ]
 }

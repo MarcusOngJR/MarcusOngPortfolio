@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Echo System • Marcus Ong</title>
+    <link rel="stylesheet" href="../CSS/archive.css" />
+    <link rel="stylesheet" href="../CSS/details.css" />
+    <style>
+        /* Custom styles for the video showcase */
+        .video-container {
+            width: 100%;
+            margin-top: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        video {
+            width: 100%;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <header class="site-header">
+        <nav class="nav">
+            <a href="../about.html" class="nav__brand">
+                Marcus <span class="accent">Ong</span>
+            </a>
+            <ul class="nav__links">
+                <li><a href="../about.html" class="nav__link">About</a></li>
+                <li><a href="../archive.html" class="nav__link nav__link--active">Archive</a></li>
+                <li><a href="../credit.html" class="nav__link">Credits</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Breadcrumbs -->
+        <nav class="crumbs" id="crumbs">
+            <a href="../archive.html">Archive</a> / Echo System
+        </nav>
+
+        <article class="details" id="details">
+            <header class="details__head" id="head">
+                <div>
+                    <div class="details__title" id="title">Echo System Productivity Software</div>
+                    <div class="details__meta" id="meta">
+                        2025 <span class="tag">Software Developer</span>
+                        <span class="tech">
+                            <span class="chip">C#</span>
+                            <span class="chip">TypeScript</span>
+                            <span class="chip">AI</span>
+                            <span class="chip">Web</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="actions">
+                    <a class="btn" href="../archive.html">Back</a>
+                </div>
+            </header>
+
+            <section id="desc" class="desc">
+                <p>Developed a desktop productivity software MVP to help users manage tasks, notes, and schedules
+                    efficiently. Integrated features such as task prioritization, note-taking with rich text formatting,
+                    and calendar synchronization. On Board AI assistant to keep user company during long isolating
+                    work-at-home sessions.</p>
+
+                <div class="video-container">
+                    <video controls autoplay muted loop>
+                        <source src="../Assets/EchoSystem.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </section>
+
+            <section id="extra"></section>
+        </article>
+    </div>
+</body>
+
+</html>
