@@ -2,85 +2,185 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Echo System • Marcus Ong</title>
-    <link rel="stylesheet" href="../CSS/archive.css" />
-    <link rel="stylesheet" href="../CSS/details.css" />
-    <style>
-        /* Custom styles for the video showcase */
-        .video-container {
-            width: 100%;
-            margin-top: 2rem;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Echo System • Marcus Ong</title>
 
-        video {
-            width: 100%;
-            display: block;
-        }
-    </style>
+  <link rel="stylesheet" href="../CSS/archive.css" />
+  <link rel="stylesheet" href="../CSS/details.css" />
+  <link rel="stylesheet" href="CSS/echosystem.css" />
+
+
 </head>
 
 <body>
-    <!-- NAVBAR -->
-    <header class="site-header">
-        <nav class="nav">
-            <a href="../about.html" class="nav__brand">
-                Marcus <span class="accent">Ong</span>
-            </a>
-            <ul class="nav__links">
-                <li><a href="../about.html" class="nav__link">About</a></li>
-                <li><a href="../archive.html" class="nav__link nav__link--active">Archive</a></li>
-                <li><a href="../credit.html" class="nav__link">Credits</a></li>
+  <!-- NAVBAR -->
+  <header class="site-header">
+    <nav class="nav">
+      <a href="../about.html" class="nav__brand">
+        Marcus <span class="accent">Ong</span>
+      </a>
+      <ul class="nav__links">
+        <li><a href="../about.html" class="nav__link">About</a></li>
+        <li><a href="../archive.html" class="nav__link nav__link--active">Archive</a></li>
+        <li><a href="../credit.html" class="nav__link">Credits</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <!-- Breadcrumbs -->
+    <nav class="crumbs" id="crumbs">
+      <a href="../archive.html">Archive</a> / Echo System
+    </nav>
+
+    <article class="details" id="details">
+      <header class="details__head" id="head">
+        <div>
+
+          <div class="details__title" id="title" style="display:none;">Echo System Productivity Software</div>
+
+          <div class="echo-hero">
+            <div class="echo-hero__top">
+              <div>
+                <div class="echo-kicker">Project • IMP</div>
+                <h1 class="echo-title">Echo System Productivity Software</h1>
+                <p class="echo-sub">
+                  Built a workflow productivity enhancement MVP integrated with AI; sole developer managing end-to-end
+                  delivery. Designed to help users stay organised and feel less isolated during long work-from-home
+                  sessions.
+                </p>
+
+                <div class="echo-meta">
+                  <span class="echo-pill"><span class="echo-dot echo-dot--purple"></span> 2025</span>
+                  <span class="echo-pill"><span class="echo-dot"></span> Software Developer</span>
+                  <span class="echo-pill">Windows MVP</span>
+                  <span class="echo-pill">AI Assistant</span>
+                  <span class="echo-pill">C#</span>
+                </div>
+              </div>
+
+              <!-- Project links -->
+              <div class="echo-actions" aria-label="Project links">
+                <a class="echo-btn" href="../archive.html" title="Back to Archive">
+                  <!-- Arrow icon -->
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6" />
+                  </svg>
+                  Back
+                </a>
+
+                <a class="echo-btn echo-btn--primary" href="https://github.com/MarcusOngJR/Project-Echo-system" target="_blank" rel="noopener">
+                  <!-- GitHub icon -->
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path
+                      d="M9 19c-4 1.5-4-2.5-5-3m10 6v-3.9c0-1 .1-1.4-.5-2 1.8-.2 3.7-.9 3.7-4a3.1 3.1 0 0 0-.8-2.1 2.9 2.9 0 0 0-.1-2.1s-.7-.2-2.2.8a7.6 7.6 0 0 0-4 0c-1.5-1-2.2-.8-2.2-.8a2.9 2.9 0 0 0-.1 2.1A3.1 3.1 0 0 0 6.8 11c0 3.1 1.9 3.8 3.7 4-.5.6-.5 1.2-.5 2V22" />
+                  </svg>
+                  GitHub Repo
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="details__meta" id="meta" style="display:none;">
+            2025 <span class="tag">Software Developer</span>
+            <span class="tech">
+              <span class="chip">C#</span>
+              <span class="chip">AI</span>
+              <span class="chip">Windows</span>
+              <span class="chip">REST API</span>
+              <span class="chip">OpenAI</span>
+            </span>
+          </div>
+        </div>
+      </header>
+
+      <section id="desc" class="desc">
+        <!-- Main content grid -->
+        <div class="echo-grid">
+          <!-- Left: overview + video -->
+          <div class="echo-card">
+            <div class="echo-card__head">
+              <h2 class="echo-card__title">Overview</h2>
+            </div>
+
+            <div class="echo-card__body">
+              <p style="margin-top:0;">
+                Developed a desktop productivity software MVP to help users manage tasks, notes, and schedules
+                efficiently. Integrated features such as task prioritization, note-taking with rich text formatting,
+                and calendar synchronization — plus an onboard AI assistant to keep users company during long,
+                isolating work-from-home sessions.
+              </p>
+
+              <ul class="echo-list">
+                <li><strong>Role:</strong> Sole developer (design → build → testing)</li>
+                <li><strong>Focus:</strong> Reducing task overload + improving daily clarity</li>
+                <li><strong>Core Modules:</strong> Tasks, Notes, Calendar, AI assistant</li>
+              </ul>
+
+              <div class="video-container">
+                <video controls autoplay muted loop playsinline>
+                  <source src="../Assets/EchoSystem.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <div class="echo-caption">
+                  MVP walkthrough — task management, notes, and assistant interactions.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: highlights + tech -->
+          <aside class="echo-card">
+            <div class="echo-card__head">
+              <h2 class="echo-card__title">Highlights</h2>
+            </div>
+
+            <div class="echo-card__body">
+              <ul class="echo-list" style="margin-top:0;">
+                <li>Task prioritisation + quick reordering for “what to do next”.</li>
+                <li>Rich text notes for meeting capture and planning.</li>
+                <li>Calendar sync to visualise workload across the week.</li>
+                <li>AI assistant to nudge, encourage, and surface reminders.</li>
+              </ul>
+
+              <hr style="border:0;border-top:1px solid rgba(255,255,255,0.08); margin: 1rem 0;" />
+
+              <h3 style="margin:0 0 0.6rem; font-size: 1rem; color: rgba(255,255,255,0.75);">
+                Tech Stack
+              </h3>
+              <div class="echo-tech">
+                <span class="echo-chip">C#</span>
+                <span class="echo-chip">Windows Software</span>
+                <span class="echo-chip">API</span>
+                <span class="echo-chip">AI</span>
+                <span class="echo-chip">OpenAI</span>
+              </div>
+
+              <p style="margin: 1rem 0 0; color: rgba(255,255,255,0.66);">
+                Want to see the implementation? Use the
+                <a class="echo-inline-link" href="#" target="_blank" rel="noopener">GitHub Repo</a>
+                link above.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="extra" style="margin-top: 1rem;">
+        <div class="echo-card">
+          <div class="echo-card__head">
+            <h2 class="echo-card__title">Project Links</h2>
+          </div>
+          <div class="echo-card__body">
+            <ul class="echo-list" style="margin-top:0;">
+              <li><strong>GitHub:</strong> <a class="echo-inline-link" href="https://github.com/MarcusOngJR/Project-Echo-system" target="_blank" rel="noopener">Repository</a></li>
             </ul>
-        </nav>
-    </header>
-
-    <div class="container">
-        <!-- Breadcrumbs -->
-        <nav class="crumbs" id="crumbs">
-            <a href="../archive.html">Archive</a> / Echo System
-        </nav>
-
-        <article class="details" id="details">
-            <header class="details__head" id="head">
-                <div>
-                    <div class="details__title" id="title">Echo System Productivity Software</div>
-                    <div class="details__meta" id="meta">
-                        2025 <span class="tag">Software Developer</span>
-                        <span class="tech">
-                            <span class="chip">C#</span>
-                            <span class="chip">TypeScript</span>
-                            <span class="chip">AI</span>
-                            <span class="chip">Web</span>
-                        </span>
-                    </div>
-                </div>
-                <div class="actions">
-                    <a class="btn" href="../archive.html">Back</a>
-                </div>
-            </header>
-
-            <section id="desc" class="desc">
-                <p>Developed a desktop productivity software MVP to help users manage tasks, notes, and schedules
-                    efficiently. Integrated features such as task prioritization, note-taking with rich text formatting,
-                    and calendar synchronization. On Board AI assistant to keep user company during long isolating
-                    work-at-home sessions.</p>
-
-                <div class="video-container">
-                    <video controls autoplay muted loop>
-                        <source src="../Assets/EchoSystem.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-            </section>
-
-            <section id="extra"></section>
-        </article>
-    </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </div>
 </body>
 
 </html>

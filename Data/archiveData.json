@@ -100,9 +100,10 @@
           "link": "ArchivePages/echosystem.html",
           "tech": [
             "C#",
-            "TypeScript",
             "AI",
-            "Web"
+            "Windows MVP",
+            "REST API",
+            "OpenAI"
           ]
         },
         {
@@ -112,7 +113,7 @@
           "year": 2024,
           "tag": "Full-Stack • Scrum Master",
           "desc": "Elderly & caretaker Quality-of-Life web app MVP; practiced Scrum throughout. Module Grade: AD.",
-          "link": "",
+          "link": "ArchivePages/seniorsync.html",
           "tech": [
             "JS",
             "Express.js",

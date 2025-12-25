@@ -109,9 +109,6 @@ function getActiveIndex() {
     syncPrompt(nextIndex);
   }
 
-  // on first load:
-  // - add .page-loaded so .slide-content fades in
-  // - force slide 0 into an "active, entering-down" look
   window.addEventListener('load', function () {
     document.body.classList.add('page-loaded');
 
@@ -126,12 +123,12 @@ function getActiveIndex() {
     updateSlides();
   });
 
-  // watch scroll / resize
+
   window.addEventListener('scroll', updateSlides);
   window.addEventListener('resize', updateSlides);
 })();
 
-/* Let mouse wheel over spline still scroll page */
+
 (function enableSplineScrollPassthrough() {
   var splines = document.querySelectorAll('.spline-bg');
 
@@ -139,7 +136,7 @@ function getActiveIndex() {
     splineEl.addEventListener(
       'wheel',
       function (e) {
-        // stop spline from consuming wheel
+
         e.preventDefault();
         window.scrollBy({
           top: e.deltaY,
@@ -164,7 +161,7 @@ function getActiveIndex() {
 
     cards.forEach((card, i) => {
       const proj = items[i];
-      if (!proj) return; // nothing to fill for this card
+      if (!proj) return;
 
       const titleEl = card.querySelector('.project-card__name');
       const metaEl  = card.querySelector('.project-card__meta');
