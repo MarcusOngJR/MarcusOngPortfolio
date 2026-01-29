@@ -9,6 +9,23 @@
   <link rel="stylesheet" href="../CSS/archive.css" />
   <link rel="stylesheet" href="../CSS/details.css" />
   <link rel="stylesheet" href="CSS/seniorsync.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      corePlugins: {
+        preflight: false,
+      },
+      theme: {
+        extend: {
+          colors: {
+            accent: '#c084fc',
+            sub: '#60a5fa',
+            dim: '#9ca3af',
+          }
+        }
+      }
+    }
+  </script>
 
 
 </head>
@@ -37,7 +54,7 @@
     <article class="details" id="details">
       <header class="details__head" id="head">
         <div class="ss-hero">
-          <div class="ss-top">
+          <div class="ss-top flex flex-col md:flex-row gap-6">
             <div>
               <div class="ss-kicker">Project • BED</div>
               <h1 class="ss-title">SeniorSync BED Project</h1>
@@ -84,7 +101,7 @@
       </header>
 
       <section class="desc" id="desc">
-        <div class="ss-grid">
+        <div class="ss-grid grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-6">
           <!-- Left: Overview + optional media -->
           <div class="ss-card">
             <div class="ss-card__head">
@@ -108,10 +125,7 @@
 
               <!-- Optional media block (replace image path or remove this whole ss-media div) -->
               <div class="ss-media">
-                <img src="../Assets/SeniorSync.png" alt="SeniorSync preview (replace with your screenshot)" />
-                <div class="ss-caption">
-                  Replace this with a UI screenshot / poster / demo still. (File: <code>../Assets/SeniorSync.png</code>)
-                </div>
+                <img src="Assets\SeniorSync.png" alt="SeniorSync preview (replace with your screenshot)" />
               </div>
             </div>
           </div>
@@ -158,9 +172,11 @@
           </div>
           <div class="ss-card__body">
             <ul class="ss-list" style="margin-top:0;">
-              <li><strong>GitHub:</strong> <a class="ss-inline-link" href="https://github.com/MarcusOngJR/BED_SeniorSync_Assignment" target="_blank"
+              <li><strong>GitHub:</strong> <a class="ss-inline-link"
+                  href="https://github.com/MarcusOngJR/BED_SeniorSync_Assignment" target="_blank"
                   rel="noopener">Repository</a></li>
-              <li><strong>Live Demo:</strong> <a class="ss-inline-link" href="https://bed-seniorsync-assignment.onrender.com" target="_blank" rel="noopener">Hosted
+              <li><strong>Live Demo:</strong> <a class="ss-inline-link"
+                  href="https://bed-seniorsync-assignment.onrender.com" target="_blank" rel="noopener">Hosted
                   MVP</a></li>
             </ul>
           </div>
